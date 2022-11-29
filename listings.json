@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/mal-and-alex/index.html",
       "/posts/go-avs-go/index.html"
     ]
   }
