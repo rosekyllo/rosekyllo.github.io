@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -108,6 +171,92 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.3.6     ✔ purrr   0.3.5
+✔ tibble  3.1.8     ✔ dplyr   1.0.9
+✔ tidyr   1.2.0     ✔ stringr 1.4.1
+✔ readr   2.1.2     ✔ forcats 0.5.2
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>soccer<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"2022.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+• `Gls` -&gt; `Gls...11`
+• `Ast` -&gt; `Ast...12`
+• `G-PK` -&gt; `G-PK...13`
+• `Gls` -&gt; `Gls...18`
+• `Ast` -&gt; `Ast...19`
+• `G-PK` -&gt; `G-PK...21`
+• `xG` -&gt; `xG...23`
+• `npxG` -&gt; `npxG...24`
+• `xAG` -&gt; `xAG...25`
+• `npxG+xAG` -&gt; `npxG+xAG...26`
+• `xG` -&gt; `xG...27`
+• `xAG` -&gt; `xAG...28`
+• `npxG` -&gt; `npxG...30`
+• `npxG+xAG` -&gt; `npxG+xAG...31`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: One or more parsing issues, see `problems()` for details</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 314 Columns: 31
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (4): Player, Pos, Squad, npxG+xAG...31
+dbl (27): Rk, Age, Born, MP, Starts, Min, 90s, Gls...11, Ast...12, G-PK...13...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(soccer) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 31
+     Rk Player  Pos   Squad   Age  Born    MP Starts   Min `90s` Gls..…¹ Ast..…²
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1     1 M. A. … MFFW  Ange…    23  1998     2      0    18   0.2       0       0
+2     2 Michae… FW    Dash     24  1997    12      3   273   3         0       0
+3     3 Kerry … FWMF  Pride    22  1999    21     12  1042  11.6       0       0
+4     4 Jillie… DFMF  Red …    NA    NA    17      5   580   6.4       0       0
+5     5 Tinaya… FWMF  Spir…    22  1999     9      1   167   1.9       0       0
+6     6 Amirah… FWMF  Wave     23  1998    18      4   551   6.1       2       1
+# … with 19 more variables: `G-PK...13` &lt;dbl&gt;, PK &lt;dbl&gt;, PKatt &lt;dbl&gt;,
+#   CrdY &lt;dbl&gt;, CrdR &lt;dbl&gt;, Gls...18 &lt;dbl&gt;, Ast...19 &lt;dbl&gt;, `G+A` &lt;dbl&gt;,
+#   `G-PK...21` &lt;dbl&gt;, `G+A-PK` &lt;dbl&gt;, xG...23 &lt;dbl&gt;, npxG...24 &lt;dbl&gt;,
+#   xAG...25 &lt;dbl&gt;, `npxG+xAG...26` &lt;dbl&gt;, xG...27 &lt;dbl&gt;, xAG...28 &lt;dbl&gt;,
+#   `xG+xAG` &lt;dbl&gt;, npxG...30 &lt;dbl&gt;, `npxG+xAG...31` &lt;chr&gt;, and abbreviated
+#   variable names ¹​Gls...11, ²​Ast...12</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>alexandmal <span class="ot">&lt;-</span> soccer <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Player<span class="sc">==</span><span class="st">"Alex Morgan"</span><span class="sc">|</span>Player<span class="sc">==</span><span class="st">"Mallory Pugh"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alexandmal)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 31
+     Rk Player  Pos   Squad   Age  Born    MP Starts   Min `90s` Gls..…¹ Ast..…²
+  &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1   193 Alex M… FWMF  Wave     32  1989    17     16  1435  15.9      15       3
+2   230 Mallor… FWMF  Red …    23  1998    16     13  1243  13.8      11       6
+# … with 19 more variables: `G-PK...13` &lt;dbl&gt;, PK &lt;dbl&gt;, PKatt &lt;dbl&gt;,
+#   CrdY &lt;dbl&gt;, CrdR &lt;dbl&gt;, Gls...18 &lt;dbl&gt;, Ast...19 &lt;dbl&gt;, `G+A` &lt;dbl&gt;,
+#   `G-PK...21` &lt;dbl&gt;, `G+A-PK` &lt;dbl&gt;, xG...23 &lt;dbl&gt;, npxG...24 &lt;dbl&gt;,
+#   xAG...25 &lt;dbl&gt;, `npxG+xAG...26` &lt;dbl&gt;, xG...27 &lt;dbl&gt;, xAG...28 &lt;dbl&gt;,
+#   `xG+xAG` &lt;dbl&gt;, npxG...30 &lt;dbl&gt;, `npxG+xAG...31` &lt;chr&gt;, and abbreviated
+#   variable names ¹​Gls...11, ²​Ast...12</code></pre>
+</div>
+</div>
 
 
 
